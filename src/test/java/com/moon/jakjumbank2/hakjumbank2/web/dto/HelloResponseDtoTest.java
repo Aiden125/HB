@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
 public class HelloResponseDtoTest {
 
     @Test
-    public void 롬복_테스트() {
+    public void 롬복_기능_테스트() {
         //given
         String name = "문";
         int amount = 1;
