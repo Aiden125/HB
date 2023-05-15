@@ -1,5 +1,6 @@
 package com.moon.jakjumbank2.hakjumbank2.web;
 
+import com.moon.jakjumbank2.hakjumbank2.domain.posts.Posts;
 import com.moon.jakjumbank2.hakjumbank2.domain.posts.PostsRepository;
 import com.moon.jakjumbank2.hakjumbank2.service.posts.PostsService;
 import com.moon.jakjumbank2.hakjumbank2.web.dto.PostsSaveRequestDto;
@@ -14,6 +15,8 @@ import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -38,13 +41,12 @@ public class PostsApiControllerTest {
         //given
         String title = "title";
         String content = "content";
-        String author = "author";
 
         PostsSaveRequestDto requestDto = PostsSaveRequestDto
                 .builder()
                 .title(title)
                 .content(content)
-                .author(author)
+                .author("author")
                 .build();
 
         String url ="http://localhost:"+port+"/api/v1/posts";
@@ -58,5 +60,9 @@ public class PostsApiControllerTest {
         Assertions.assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         // null이나 0이 아닌지 검증
         Assertions.assertThat(responseEntity.getBody()).isGreaterThan(0L);
+
+        List<Posts> all = postsRepository.findAll();
+        Assertions.assertThat(all.get(0).getTitle()).isEqualTo(title);
+        Assertions.assertThat(all.get(0).getContent()).isEqualTo(content);
     }
 }
