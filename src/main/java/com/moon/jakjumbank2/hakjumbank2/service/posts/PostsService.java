@@ -3,6 +3,7 @@ package com.moon.jakjumbank2.hakjumbank2.service.posts;
 import com.moon.jakjumbank2.hakjumbank2.domain.posts.Posts;
 import com.moon.jakjumbank2.hakjumbank2.domain.posts.PostsRepository;
 import com.moon.jakjumbank2.hakjumbank2.web.dto.PostsListResponseDto;
+import com.moon.jakjumbank2.hakjumbank2.web.dto.PostsResponseDto;
 import com.moon.jakjumbank2.hakjumbank2.web.dto.PostsSaveRequestDto;
 import com.moon.jakjumbank2.hakjumbank2.web.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -33,12 +34,11 @@ public class PostsService {
         return id;
     }
 
-    @Transactional
-    public void delete (Long id) {
-        Posts posts = postsRepository.findById(id)
+    public PostsResponseDto findById (Long id) {
+        Posts entity = postsRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
 
-        postsRepository.delete(posts);
+        return new PostsResponseDto(entity);
     }
 
     @Transactional(readOnly = true)
@@ -46,5 +46,13 @@ public class PostsService {
         return postsRepository.findAllDesc().stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void delete (Long id) {
+        Posts posts = postsRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("해당 게시글이 없습니다. id=" + id));
+
+        postsRepository.delete(posts);
     }
 }
