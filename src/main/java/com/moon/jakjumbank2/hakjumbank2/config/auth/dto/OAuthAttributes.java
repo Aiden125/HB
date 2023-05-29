@@ -1,6 +1,5 @@
 package com.moon.jakjumbank2.hakjumbank2.config.auth.dto;
 
-import com.jojoldu.book.freelecspringboot2webservice.domain.user.Role;
 import com.moon.jakjumbank2.hakjumbank2.domain.user.Role;
 import com.moon.jakjumbank2.hakjumbank2.domain.user.User;
 import lombok.Builder;
@@ -28,9 +27,9 @@ public class OAuthAttributes {
     // OAuth2User 반환 값이 Map이기 때문에 이를 하나하나 변환해주어야함
     public static OAuthAttributes of(String registrationId, String userNameAttributesName, Map<String, Object> attributes) {
 
-        if ("naver".equals(registrationId)) {
-            return ofNaver("id", attributes);
-        }
+//        if ("naver".equals(registrationId)) {
+//            return ofNaver("id", attributes);
+//        }
 
         return ofGoogle(userNameAttributesName, attributes);
     }
@@ -42,18 +41,6 @@ public class OAuthAttributes {
                 .picture((String) attributes.get("picture"))
                 .attributes(attributes)
                 .nameAttributeKey(userNammAttributeName)
-                .build();
-    }
-
-    private static OAuthAttributes ofNaver(String userNameAttributeName, Map<String, Object> attributes) {
-        Map<String, Object> response = (Map<String, Object>) attributes.get("response");
-
-        return OAuthAttributes.builder()
-                .name((String) response.get("name"))
-                .email((String) response.get("email"))
-                .picture((String) response.get("profile_image"))
-                .attributes(response)
-                .nameAttributeKey(userNameAttributeName)
                 .build();
     }
 

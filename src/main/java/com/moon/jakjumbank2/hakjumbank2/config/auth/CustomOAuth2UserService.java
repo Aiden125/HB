@@ -1,9 +1,5 @@
 package com.moon.jakjumbank2.hakjumbank2.config.auth;
 
-import com.jojoldu.book.freelecspringboot2webservice.config.auth.dto.OAuthAttributes;
-import com.jojoldu.book.freelecspringboot2webservice.config.auth.dto.SessionUser;
-import com.jojoldu.book.freelecspringboot2webservice.domain.user.User;
-import com.jojoldu.book.freelecspringboot2webservice.domain.user.UserRepository;
 import com.moon.jakjumbank2.hakjumbank2.config.auth.dto.OAuthAttributes;
 import com.moon.jakjumbank2.hakjumbank2.config.auth.dto.SessionUser;
 import com.moon.jakjumbank2.hakjumbank2.domain.user.User;
@@ -34,7 +30,6 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         // 현재 로그인중인 서비스 구분
         String registrationId = userRequest.getClientRegistration().getRegistrationId();
-
         // OAuth2 로그인 진행 시 키
         String userNameAttributeName = userRequest.getClientRegistration().
                 getProviderDetails().
