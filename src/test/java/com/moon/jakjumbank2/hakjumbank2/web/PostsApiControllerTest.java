@@ -63,11 +63,13 @@ public class PostsApiControllerTest {
     @WithMockUser(roles="USER")
     public void posts_등록() throws Exception {
         //given
+        String category = "가격비교";
         String title = "title";
         String content = "content";
 
         PostsSaveRequestDto requestDto = PostsSaveRequestDto
                 .builder()
+                .category(category)
                 .title(title)
                 .content(content)
                 .author("author")

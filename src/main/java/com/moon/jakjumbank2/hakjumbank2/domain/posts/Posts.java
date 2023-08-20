@@ -16,6 +16,9 @@ public class Posts extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 500, columnDefinition = "TEXT")
+    private String category;
+
     @Column(length = 500, nullable = false)
     private String title;
 
@@ -25,7 +28,8 @@ public class Posts extends BaseTimeEntity {
     private String author;
 
     @Builder
-    public Posts(String title, String content, String author) {
+    public Posts(String category, String title, String content, String author) {
+        this.category = category;
         this.title = title;
         this.content = content;
         this.author = author;

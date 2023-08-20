@@ -15,6 +15,8 @@ var main = {
     },
     save : function () {
         var data = {
+            // category: $('#title').val(),
+            category: "가격비교",
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
