@@ -10,9 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.mail.Session;
-import javax.servlet.http.HttpSession;
-
 // 화면 안내용 컨트롤러
 @RequiredArgsConstructor
 @Controller
@@ -44,5 +41,28 @@ public class IndexController {
         model.addAttribute("post", dto);
 
         return "posts-update";
+    }
+    @GetMapping("/posts/comparison")
+    public String comparison(Model model) {
+
+        model.addAttribute("posts", postsService.findComparisonDesc());
+
+        return "posts-comparison";
+    }
+
+    @GetMapping("/posts/reviews")
+    public String reviews(Model model) {
+
+        model.addAttribute("posts", postsService.findReviewsDesc());
+
+        return "posts-reviews";
+    }
+
+    @GetMapping("/posts/introduction")
+    public String introduction(Model model) {
+
+//        model.addAttribute("posts", postsService.findReviewsDesc());
+
+        return "posts-introduction";
     }
 }

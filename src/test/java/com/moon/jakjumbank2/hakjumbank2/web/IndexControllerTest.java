@@ -25,5 +25,32 @@ public class IndexControllerTest {
         // then
         Assertions.assertThat(body).contains("메인 화면");
     }
+
+    @Test
+    public void 가격비교페이지_로딩() {
+        // when
+        String body = this.restTemplate.getForObject("/posts/comparison", String.class);
+
+        // then
+        Assertions.assertThat(body).contains("가격비교");
+    }
+
+    @Test
+    public void 교육원후기페이지_로딩() {
+        // when
+        String body = this.restTemplate.getForObject("/posts/reviews", String.class);
+
+        // then
+        Assertions.assertThat(body).contains("교육원후기");
+    }
+
+    @Test
+    public void 학점은행제소개페이지_로딩() {
+        // when
+        String body = this.restTemplate.getForObject("/posts/introduction", String.class);
+
+        // then
+        Assertions.assertThat(body).contains("소개");
+    }
     
 }

@@ -55,4 +55,20 @@ public class PostsService {
 
         postsRepository.delete(posts);
     }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findComparisonDesc() {
+        // 가격비교인거만 넣기
+        return postsRepository.findComparisonDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findReviewsDesc() {
+        // 가격비교인거만 넣기
+        return postsRepository.findReviewsDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
 }
