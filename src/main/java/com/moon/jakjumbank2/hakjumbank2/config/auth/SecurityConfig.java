@@ -24,13 +24,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
 
                 // 권한 관리 대상 옵션, URL, HTTP 메소드 별 관리 가능, permitAll() 옵션을 통해 전체 열람 권한 부여, /api/v1/** 주소를 가진 API는 USER권한을 가진 사람만 가능하도록
-                .antMatchers("/", "/css/**", "/images/**",
+                .antMatchers("/", "/view/**", "/css/**", "/images/**",
                         "/js/**", "/h2-console/**").permitAll()
                 .antMatchers("/api/v1/**").hasRole(Role.USER.name())
 
                 // 설정된 값들 이외 나머지 URL들을 나타냄, authenticated를 추가해 나머지 url들은
                 // 인증된 사용자 즉, 로그인한 사용자에게만 허용한다는 것을 나타냄
-                .anyRequest().authenticated()
+                // api/v1쪽은 디비접근 옵션이므로 그쪽 남겨두고는 일단 퍼미션 허용하기
+//                .anyRequest().authenticated()
+                .anyRequest().permitAll()
 
                 //로그아웃 기능에 대한 여러 설정 진입점, 로그아웃 성공시 '/'로 보냄
                 .and()
