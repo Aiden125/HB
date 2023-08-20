@@ -53,7 +53,7 @@ public class OAuthAttributes {
                 .name(name)
                 .email(email)
                 .picture(picture)
-                .role(Role.GUEST)
+                .role(Role.USER) // 가입시 기본 권한 USER로 변경, 추후 구분이 필요할거 같으면 재수정 예정
                 .build();
     }
 
