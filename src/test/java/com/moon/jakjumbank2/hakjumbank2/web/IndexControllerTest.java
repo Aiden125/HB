@@ -23,7 +23,9 @@ public class IndexControllerTest {
         String body = this.restTemplate.getForObject("/", String.class);
         
         // then
-        Assertions.assertThat(body).contains("메인 화면");
+        Assertions.assertThat(body).contains("소개");
+        Assertions.assertThat(body).contains("가격비교");
+        Assertions.assertThat(body).contains("후기");
     }
 
     @Test
