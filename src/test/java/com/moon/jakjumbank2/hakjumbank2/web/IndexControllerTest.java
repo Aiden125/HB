@@ -31,7 +31,7 @@ public class IndexControllerTest {
     @Test
     public void 가격비교페이지_로딩() {
         // when
-        String body = this.restTemplate.getForObject("/posts/comparison", String.class);
+        String body = this.restTemplate.getForObject("/posts/list/comparison", String.class);
 
         // then
         Assertions.assertThat(body).contains("가격비교");
@@ -40,7 +40,7 @@ public class IndexControllerTest {
     @Test
     public void 교육원후기페이지_로딩() {
         // when
-        String body = this.restTemplate.getForObject("/posts/reviews", String.class);
+        String body = this.restTemplate.getForObject("/posts/list/reviews", String.class);
 
         // then
         Assertions.assertThat(body).contains("교육원후기");
@@ -49,7 +49,7 @@ public class IndexControllerTest {
     @Test
     public void 학점은행제소개페이지_로딩() {
         // when
-        String body = this.restTemplate.getForObject("/posts/introduction", String.class);
+        String body = this.restTemplate.getForObject("/posts/list/introduction", String.class);
 
         // then
         Assertions.assertThat(body).contains("소개");

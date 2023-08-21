@@ -16,7 +16,7 @@ var main = {
     save : function () {
         var data = {
             // category: $('#title').val(),
-            category: "가격비교",
+            category: $('#category').val(),
             title: $('#title').val(),
             author: $('#author').val(),
             content: $('#content').val()
@@ -31,6 +31,10 @@ var main = {
         }).done(function() {
             alert('글이 등록되었습니다.');
             window.location.href = '/';
+            var a = data.category;
+            if (a.includes("가격비교")) {
+                window.location.href = '/posts/comparison';
+            }
         }).fail(function (error) {
             alert("글 등록 실패 : " + JSON.stringify(data) + JSON.stringify(error));
         });

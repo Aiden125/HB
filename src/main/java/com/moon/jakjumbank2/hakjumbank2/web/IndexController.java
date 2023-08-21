@@ -30,8 +30,13 @@ public class IndexController {
     }
 
     @GetMapping("/posts/save")
-    public String postSave() {
-        return "posts-save";
+    public String postSave(Model model, @LoginUser SessionUser user) {
+
+        if (user != null) {
+            model.addAttribute("uName", user.getName());
+        }
+
+        return "posts-save-comparison";
     }
 
     @GetMapping("/posts/update/{id}")
@@ -42,27 +47,40 @@ public class IndexController {
 
         return "posts-update";
     }
-    @GetMapping("/posts/comparison")
-    public String comparison(Model model) {
+    @GetMapping("/posts/list/comparison")
+    public String comparison(Model model, @LoginUser SessionUser user) {
 
         model.addAttribute("posts", postsService.findComparisonDesc());
 
-        return "posts-comparison";
+        if (user != null) {
+            model.addAttribute("uName", user.getName());
+        }
+
+        return "posts-list-comparison";
     }
 
-    @GetMapping("/posts/reviews")
+    @GetMapping("/posts/list/reviews")
     public String reviews(Model model) {
 
         model.addAttribute("posts", postsService.findReviewsDesc());
 
-        return "posts-reviews";
+        return "posts-list-reviews";
     }
 
-    @GetMapping("/posts/introduction")
+    @GetMapping("/posts/list/introduction")
     public String introduction(Model model) {
 
 //        model.addAttribute("posts", postsService.findReviewsDesc());
 
-        return "posts-introduction";
+        return "posts-list-introduction";
+    }
+
+    @GetMapping("/posts/view/{id}")
+    public String postView(@PathVariable Long id, Model model) {
+
+        PostsResponseDto dto = postsService.findById(id);
+        model.addAttribute("post", dto);
+
+        return "posts-view-comparison";
     }
 }
