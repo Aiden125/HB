@@ -33,7 +33,7 @@ var main = {
             window.location.href = '/';
             var a = data.category;
             if (a.includes("가격비교")) {
-                window.location.href = '/posts/comparison';
+                window.location.href = '/posts/list/comparison';
             }
         }).fail(function (error) {
             alert("글 등록 실패 : " + JSON.stringify(data) + JSON.stringify(error));
