@@ -67,8 +67,7 @@ public class PostsApiControllerTest {
         String title = "title";
         String content = "content";
 
-        PostsSaveRequestDto requestDto = PostsSaveRequestDto
-                .builder()
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .category(category)
                 .title(title)
                 .content(content)

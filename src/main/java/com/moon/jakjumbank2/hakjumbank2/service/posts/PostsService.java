@@ -24,6 +24,15 @@ public class PostsService {
         return postsRepository.save(requestDto.toEntity()).getId();
     }
 
+    /**
+     * save는 repository를 통해 별도 쿼리를 날리지만 update의 경우 Id를 찾기만하고
+     * 쿼리를 별도로 날리지 않는다. 별도로 쿼리를 날리지 않고, 영속성 컨텍스트를 가지고 있기에
+     * 해당 인스턴스의 값을 변경하면 적용된다.
+     * 즉, 데이터를 가져와서 해당값을 변경하면 디비도 알아서 업데이트된다.
+     * @param id
+     * @param requestDto
+     * @return
+     */
     @Transactional
     public Long update(Long id, PostsUpdateRequestDto requestDto) {
         Posts posts = postsRepository.findById(id)

@@ -42,8 +42,8 @@ public class HelloControllerTest {
     @WithMockUser(roles = "USER")
     @Test
     public void helloDto가_리턴된다() throws Exception {
-        String name = "문";
-        int amount = 1;
+        String name = "hello";
+        int amount = 1000;
 
         mvc.perform(
                 get("/hello/dto")

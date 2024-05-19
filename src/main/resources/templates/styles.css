@@ -11,10 +11,22 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
+  background-color: #333; /* 배경색 지정 */
+  color: #fff; /* 글자색 지정 */
+  padding: 10px; /* 헤더 안 여백 설정 */
+  text-align: center; /* 글자 중앙 정렬 */
+}
+
+/* 헤더 내의 링크 스타일링 */
+header a {
+  color: #fff; /* 링크 글자색 지정 */
+  text-decoration: none; /* 밑줄 제거 */
+  margin: 0 10px; /* 링크 사이 여백 설정 */
+}
+
+/* 마우스 호버 시 링크 스타일 변경 */
+header a:hover {
+  text-decoration: underline; /* 호버 시 밑줄 추가 */
 }
 
 nav ul {

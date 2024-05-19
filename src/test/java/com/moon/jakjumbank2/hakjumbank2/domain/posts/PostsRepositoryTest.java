@@ -24,7 +24,7 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void 게시글_저장_불러오기() {
+    public void 게시글_저장_불러오기() { // save, findAll 테스트
         // given
         String title = "제목";
         String content = "본문";

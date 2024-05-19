@@ -1,10 +1,10 @@
 package com.moon.jakjumbank2.hakjumbank2.web.dto;
 
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-import static org.junit.Assert.*;
-
+// Junit 기본 assertThat이 있고 assertj의 assertThat이 존재
+// 기본 Junit은 CoreMatchers와 같은 라이브러리가 별도로 필요하고 자동완성이 약함
 public class HelloResponseDtoTest {
 
     @Test
@@ -17,8 +17,8 @@ public class HelloResponseDtoTest {
         HelloResponseDto dto = new HelloResponseDto(name, amount);
 
         //then
-        Assertions.assertThat(dto.getName()).isEqualTo(name);
-        Assertions.assertThat(dto.getAmount()).isEqualTo(amount);
+        assertThat(dto.getName()).isEqualTo(name);
+        assertThat(dto.getAmount()).isEqualTo(amount);
 
     }
 

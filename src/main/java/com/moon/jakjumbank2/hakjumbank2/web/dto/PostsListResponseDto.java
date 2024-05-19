@@ -5,6 +5,10 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+/**
+ * Response데이터의 경우 Entity에서 일부를 가져다쓰기 때문에
+ * Entity 생성자를 파라미터로 받아서 가져다 쓴다.
+ */
 @Getter
 public class PostsListResponseDto {
 

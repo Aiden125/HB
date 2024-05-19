@@ -9,11 +9,11 @@ import javax.persistence.*;
 
 @Getter
 @NoArgsConstructor
-@Entity
+@Entity // 테이블과 링크될 크랠스 명시 카멜케이스를 스네이크 케이스로 테이블 매칭
 public class Posts extends BaseTimeEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id // pk 필드
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment 적용
     private Long id;
 
     @Column(length = 500, columnDefinition = "TEXT")
@@ -27,7 +27,7 @@ public class Posts extends BaseTimeEntity {
 
     private String author;
 
-    @Builder
+    @Builder // 생성자 대신 빌더 패턴을 활용
     public Posts(String category, String title, String content, String author) {
         this.category = category;
         this.title = title;
