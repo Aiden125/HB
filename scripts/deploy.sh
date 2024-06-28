@@ -21,6 +21,11 @@ else
 fi
 
 echo "> 새 애플리케이션 배포" >> /home/ec2-user/app/step1/deploy.log
+
+REPOSITORY=/home/ec2-user/app/step1
+PROJECT_NAME=hakjumbank2
+
+cd $REPOSITORY/$PROJECT_NAME/
 JAR_NAME=$(ls -tr $REPOSITORY/ | grep jar | tail -n 1)
 
 echo "> JAR Name: $JAR_NAME" >> /home/ec2-user/app/step1/deploy.log
