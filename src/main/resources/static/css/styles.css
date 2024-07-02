@@ -1,14 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
+    margin: 20px 320px; /* 상하, 좌우 마진 */
     padding: 0;
     background-color: #f4f4f4;
 }
 
 header {
-    background-color: #0073e6;
-    color: white;
+    color: black;
     padding: 1rem 0;
+    font-size: 1.5rem;
 }
 
 nav ul {
@@ -23,7 +30,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: black;
     text-decoration: none;
     font-weight: bold;
 }
@@ -60,4 +67,49 @@ main {
 
 .post p {
     margin: 0.5rem 0 0;
+}
+
+.title-column {
+    width: 800px; /* 적당한 길이로 설정 */
+}
+
+.content-normal-column {
+    width: 200px; /* 적당한 길이로 설정 */
+}
+
+.content-small-column {
+    width: 100px; /* 적당한 길이로 설정 */
+}
+
+table {
+    margin: 30px 0;
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid #dddddd;
+    text-align: center; /* 텍스트를 가운데 정렬 */
+    padding: 8px;
+}
+th {
+    background-color: #f2f2f2;
+}
+
+header {
+    padding: 20px;
+    border: 2px solid #000; /* 테두리 추가 */
+}
+
+.main-title {
+    color: blue;
+    font-size: 2.5em;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.right {
+    position: absolute;
+    margin: 0 320px;
+    right: 0;
 }

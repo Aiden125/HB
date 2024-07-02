@@ -34,8 +34,10 @@ dependencies {
     implementation('org.springframework.boot:spring-boot-starter-oauth2-client') // 소셜 로그인 의존성
     implementation('org.springframework.session:spring-session-jdbc')
     implementation('org.mariadb.jdbc:mariadb-java-client') // 마리아db 의존성
+    implementation('org.springframework.boot:spring-boot-devtools') // css 변경시 새로고침만 해도 되도록
     testImplementation('org.springframework.security:spring-security-test')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+
 }
 
 

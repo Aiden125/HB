@@ -7,20 +7,16 @@
     <title>가격비교</title>
 </head>
 <body>
-<header>
-    <h1>가격비교</h1>
-</header>
 {{>layout/header}}
-<a href="/posts/save" role="button" class="btn btn-primary">글 등록</a>
 
 <!-- 목록 출력 영역 -->
 <table class="table table-horizontal table-bordered">
     <thead class="thead-strong">
     <tr>
-        <th>게시글번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>최종수정일</th>
+        <th class="content-small-column">글번호</th>
+        <th class="title-column">제목</th>
+        <th class="content-normal-column">작성자</th>
+        <th class="content-normal-column">날짜</th>
     </tr>
     </thead>
 
@@ -36,5 +32,8 @@
     </tbody>
 
 </table>
+
+<a href="/posts/save" role="button" class="btn btn-primary right">글 등록</a>
+
 </body>
 </html>
