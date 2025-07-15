@@ -32,7 +32,7 @@ public class PostsRepositoryTest {
         postsRepository.save(Posts.builder()
                 .title(title)
                 .content(content)
-                .author("moan125@naver.com")
+                .author("mungml1995@gmail.com")
                 .build());
 
         // when
@@ -50,6 +50,7 @@ public class PostsRepositoryTest {
         LocalDateTime now = LocalDateTime.of(2023, 5, 7, 16, 0, 0);
         postsRepository.save(Posts.builder()
                 .title("title")
+                .major("major")
                 .content("content")
                 .author("author")
                 .build());

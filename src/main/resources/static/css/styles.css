@@ -1,115 +1,165 @@
+/* 당근마켓 풍 전체 스타일 */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', Arial, sans-serif;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    margin: 20px 320px; /* 상하, 좌우 마진 */
-    padding: 0;
-    background-color: #f4f4f4;
+    background: #f8f9fa;
+    color: #222;
+    font-size: 1rem;
+    min-height: 100vh;
 }
 
-header {
-    color: black;
-    padding: 1rem 0;
-    font-size: 1.5rem;
+header, .header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 24px 0 16px 0;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FF6F0F;
+    letter-spacing: -1px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 1rem;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+    gap: 2rem;
 }
 
 nav ul li a {
-    color: black;
+    color: #222;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: color 0.2s;
 }
-
 nav ul li a:hover {
-    text-decoration: underline;
+    color: #FF6F0F;
 }
 
 main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 1rem;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 2.5rem auto;
+    padding: 0 1rem;
 }
 
-.posts {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+.card, .post, .review {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    padding: 24px 20px 20px 20px;
+    margin-bottom: 20px;
+    border: none;
+    transition: box-shadow 0.2s;
+}
+.card:hover, .post:hover, .review:hover {
+    box-shadow: 0 4px 16px rgba(255,111,15,0.10);
 }
 
-.post {
-    padding: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
+.card-title, .post h2 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 8px;
 }
 
-.post h2 {
-    margin-top: 0;
-    font-size: 1.5rem;
+.card-meta, .post-meta {
+    color: #888;
+    font-size: 0.95rem;
+    margin-bottom: 8px;
 }
 
-.post p {
-    margin: 0.5rem 0 0;
+.card-content, .post p {
+    font-size: 1.05rem;
+    color: #444;
 }
 
-.title-column {
-    width: 800px; /* 적당한 길이로 설정 */
+.btn, .btn-primary {
+    display: inline-block;
+    background: #FF6F0F;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 28px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 12px 0 0 0;
+    transition: background 0.2s;
+    box-shadow: 0 2px 8px rgba(255,111,15,0.08);
+}
+.btn:hover, .btn-primary:hover {
+    background: #ff8a3d;
 }
 
-.content-normal-column {
-    width: 200px; /* 적당한 길이로 설정 */
-}
-
-.content-small-column {
-    width: 100px; /* 적당한 길이로 설정 */
-}
-
-table {
-    margin: 30px 0;
+input, textarea, select {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 1rem;
     width: 100%;
-    border-collapse: collapse;
+    margin-bottom: 16px;
+    background: #fafbfc;
+    transition: border 0.2s;
+}
+input:focus, textarea:focus, select:focus {
+    border: 1.5px solid #FF6F0F;
+    outline: none;
+}
+
+/* 테이블(가격비교 등) */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+    margin: 32px 0;
 }
 th, td {
-    border: 1px solid #dddddd;
-    text-align: center; /* 텍스트를 가운데 정렬 */
-    padding: 8px;
+    background: #fff;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    text-align: center;
+    padding: 16px 8px;
+    font-size: 1rem;
 }
 th {
-    background-color: #f2f2f2;
-}
-
-header {
-    padding: 20px;
-    border: 2px solid #000; /* 테두리 추가 */
-}
-
-.main-title {
-    color: blue;
-    font-size: 2.5em;
-    text-decoration: none;
+    background: #FFFAF3;
+    color: #FF6F0F;
     font-weight: bold;
-    transition: color 0.3s ease, transform 0.3s ease;
 }
 
-.right {
-    position: absolute;
-    margin: 0 320px;
-    right: 0;
+.footer {
+    background: #fff;
+    border-top: 1px solid #eee;
+    text-align: center;
+    color: #aaa;
+    font-size: 1rem;
+    padding: 20px 0 16px 0;
+    margin-top: 40px;
+}
+
+/* 모바일 대응 */
+@media (max-width: 700px) {
+    main {
+        max-width: 100%;
+        margin: 1rem 0;
+        padding: 0 0.5rem;
+    }
+    .card, .post, .review {
+        padding: 16px 8px;
+    }
+    header, .header {
+        font-size: 1.3rem;
+        padding: 16px 0 10px 0;
+    }
 }

@@ -16,6 +16,7 @@ public class Posts extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment 적용
     private Long id;
 
+    // 게시글 카테고리 유형(가격비교, 후기, 소개 등등)
     @Column(length = 500, columnDefinition = "TEXT")
     private String category;
 
