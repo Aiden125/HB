@@ -8,31 +8,24 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <header>
-    <nav>
-        <h2 class="main-title">MY-TITLE</h2>
-    </nav>
+    <h2 class="main-title">MY-TITLE</h2>
     <nav>
         <ul>
             <li><a href="/">홈으로</a></li>
-            <li><a href="/posts/list/comparison">가격비교</a></li>
+            <li><a href="/">제도소개(미)</a></li>
+            <li><a href="/posts/list/comparison">교육원 가격비교</a></li>
+            <li><a href="/">교육원 후기(미)</a></li>
+            <li><a href="/">학습설계 신청(미)</a></li>
         </ul>
-        <div class="col-md-6">
-            <div class="row">
-                <div class="col-md-6">
-                    <!-- 머스태치는 if문 등을 제공하지 않음, true/false 여부만 판단
-                    그래서 항상 최종값을 넘겨줘야하기에 userName이 있다면 userName을 넘겨주도록-->
-                    {{#uName}} <!-- #username이 userName이 있는 경우를 뜻한다. -->
-                        Logged in as: <span id="user">{{uName}}</span>
-                        <!-- 스프링 시큐리티에서 기본적으로 제공하는 로그아웃 url("/logout") 사용
-                        개발자가 직접 로그아웃 기능을 만들 필요가 없다. -->
-                        <a href="/logout" class="btn btn-info active" role="button">로그아웃</a>
-                    {{/uName}}
+        <div class="auth-section">
+            {{#uName}}
+                <span class="user-info">Logged in as: <span id="user">{{uName}}</span></span>
+                <a href="/logout" class="btn btn-info" role="button">로그아웃</a>
+            {{/uName}}
 
-                    {{^uName}} <!-- ^은 없는 경우를 뜻함 -->
-                        <a href="/oauth2/authorization/google" class="btn btn-success active" role="button">로그인(구글)</a>
-                    {{/uName}}
-                </div>
-            </div>
+            {{^uName}}
+                <a href="/oauth2/authorization/google" class="btn btn-success" role="button">로그인(구글)</a>
+            {{/uName}}
         </div>
     </nav>
 </header>

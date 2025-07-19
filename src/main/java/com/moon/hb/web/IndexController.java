@@ -10,13 +10,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-// 화면 안내용 컨트롤러
+/**
+ * view 페이지로 안내해주는 controller
+ */
 @RequiredArgsConstructor
 @Controller
 public class IndexController {
 
     private final PostsService postsService;
 
+    // 메인 화면
     @GetMapping("/")
     public String index(Model model, @LoginUser SessionUser user) {
 
@@ -29,6 +32,7 @@ public class IndexController {
         return "index";
     }
 
+    // 글 등록
     @GetMapping("/posts/save")
     public String postSave(Model model, @LoginUser SessionUser user) {
 
@@ -39,6 +43,7 @@ public class IndexController {
         return "posts-save-comparison";
     }
 
+    // 글 수정
     @GetMapping("/posts/update/{id}")
     public String postUpdate(@PathVariable Long id, Model model) {
 
@@ -47,6 +52,8 @@ public class IndexController {
 
         return "posts-update";
     }
+    
+    // 가격비교 페이지
     @GetMapping("/posts/list/comparison")
     public String comparison(Model model, @LoginUser SessionUser user) {
 
@@ -59,6 +66,7 @@ public class IndexController {
         return "posts-list-comparison";
     }
 
+    // 교육원 후기
     @GetMapping("/posts/list/reviews")
     public String reviews(Model model) {
 
@@ -67,6 +75,7 @@ public class IndexController {
         return "posts-list-reviews";
     }
 
+    // 소개글
     @GetMapping("/posts/list/introduction")
     public String introduction(Model model) {
 
