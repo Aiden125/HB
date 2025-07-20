@@ -21,9 +21,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
-// @WebMvcTest(controllers = HelloController.class, excludeFilters = {
-//         @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
-// })
+@WebMvcTest(controllers = HelloController.class, excludeFilters = {
+     @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)
+})
 public class HelloControllerTest {
 
     @Autowired
