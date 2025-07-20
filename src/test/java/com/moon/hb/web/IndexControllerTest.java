@@ -18,14 +18,14 @@ public class IndexControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
     
-//    @Test
-//    public void 메인페이지_로딩() {
-//        // when
-//        String body = this.restTemplate.getForObject("/", String.class);
-//
-//        // then
-//        Assertions.assertThat(body).contains("타이틀");
-//    }
+    @Test
+    public void 메인페이지_로딩() {
+        // when
+        String body = this.restTemplate.getForObject("/", String.class);
+
+        // then
+        Assertions.assertThat(body).contains("타이틀");
+    }
 //
 //    @Test
 //    public void 가격비교페이지_로딩() {
