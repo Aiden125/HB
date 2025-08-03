@@ -18,6 +18,9 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     @Query("SELECT p FROM Posts p WHERE p.category = '가격비교' ORDER BY p.id DESC")
     List<Posts> findComparisonDesc();
 
-    @Query("SELECT p FROM Posts p WHERE p.category = '교육원후기' ORDER BY p.id DESC")
+    @Query("SELECT p FROM Posts p WHERE p.category = '후기' ORDER BY p.id DESC")
     List<Posts> findReviewsDesc();
+
+    @Query("SELECT p FROM Posts p WHERE p.category = '제도소개' ORDER BY p.id DESC")
+    List<Posts> findIntroductionDesc();
 }

@@ -32,15 +32,40 @@ public class IndexController {
         return "index";
     }
 
-    // 글 등록
+    // 가격비교 글 등록
     @GetMapping("/posts/save")
     public String postSave(Model model, @LoginUser SessionUser user) {
-
         if (user != null) {
             model.addAttribute("uName", user.getName());
         }
+        return "price-form";
+    }
+    
+    // 가격비교 글 등록 (명시적 경로)
+    @GetMapping("/posts/save/comparison")
+    public String postSaveComparison(Model model, @LoginUser SessionUser user) {
+        if (user != null) {
+            model.addAttribute("uName", user.getName());
+        }
+        return "price-form";
+    }
 
-        return "posts-save-comparison";
+    // 제도소개 글 등록
+    @GetMapping("/posts/save/introduction")
+    public String postSaveIntroduction(Model model, @LoginUser SessionUser user) {
+        if (user != null) {
+            model.addAttribute("uName", user.getName());
+        }
+        return "policy-form";
+    }
+
+    // 후기 글 등록
+    @GetMapping("/posts/save/review")
+    public String postSaveReview(Model model, @LoginUser SessionUser user) {
+        if (user != null) {
+            model.addAttribute("uName", user.getName());
+        }
+        return "review-form";
     }
 
     // 글 수정
@@ -63,25 +88,31 @@ public class IndexController {
             model.addAttribute("uName", user.getName());
         }
 
-        return "posts-list-comparison";
+        return "price-list";
     }
 
     // 교육원 후기
     @GetMapping("/posts/list/reviews")
-    public String reviews(Model model) {
-
+    public String reviews(Model model, @LoginUser SessionUser user) {
         model.addAttribute("posts", postsService.findReviewsDesc());
-
-        return "posts-list-reviews";
+        
+        if (user != null) {
+            model.addAttribute("uName", user.getName());
+        }
+        
+        return "review-list";
     }
 
-    // 소개글
+    // 제도소개
     @GetMapping("/posts/list/introduction")
-    public String introduction(Model model) {
-
-//        model.addAttribute("posts", postsService.findReviewsDesc());
-
-        return "posts-list-introduction";
+    public String introduction(Model model, @LoginUser SessionUser user) {
+        model.addAttribute("posts", postsService.findIntroductionDesc());
+        
+        if (user != null) {
+            model.addAttribute("uName", user.getName());
+        }
+        
+        return "policy-list";
     }
 
     @GetMapping("/posts/view/{id}")

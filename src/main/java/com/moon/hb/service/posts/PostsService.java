@@ -75,8 +75,16 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public List<PostsListResponseDto> findReviewsDesc() {
-        // 가격비교인거만 넣기
+        // 후기인거만 넣기
         return postsRepository.findReviewsDesc().stream()
+                .map(PostsListResponseDto::new)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<PostsListResponseDto> findIntroductionDesc() {
+        // 제도소개인거만 넣기
+        return postsRepository.findIntroductionDesc().stream()
                 .map(PostsListResponseDto::new)
                 .collect(Collectors.toList());
     }

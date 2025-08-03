@@ -1,0 +1,51 @@
+{{>layout/header}}
+
+<main class="comparison-container">
+    <div class="page-header">
+        <h1>교육원 후기 게시글 등록</h1>
+        <p>교육원 수강 후기를 공유해주세요</p>
+    </div>
+
+    <div class="form-container">
+        <div class="form-card">
+            <form class="post-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category" class="form-label">카테고리</label>
+                        <input type="text" class="form-control readonly-input" id="category" value="후기" readonly="readonly">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title" class="form-label">교육원명 및 과정 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="title" placeholder="예: 혼공학습단 Java 온라인 과정 수강 후기" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="author" class="form-label">작성자 <span class="required">*</span></label>
+                        <input type="text" class="form-control" id="author" placeholder="작성자명을 입력해주세요" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="content" class="form-label">후기 내용 <span class="required">*</span></label>
+                        <textarea class="form-control content-textarea" id="content" placeholder="교육원 수강 후기를 자세히 적어주세요&#10;&#10;예:&#10;- 수강 기간: 2023.03 ~ 2023.09&#10;- 강의 만족도: ⭐⭐⭐⭐⭐&#10;- 장점: 실무 중심 커리큘럼&#10;- 단점: 과제가 많음&#10;- 추천 여부: 적극 추천" required></textarea>
+                    </div>
+                </div>
+            </form>
+            
+            <div class="form-actions">
+                <a href="/posts/list/reviews" role="button" class="btn btn-secondary">목록으로</a>
+                <button type="button" class="btn btn-primary" id="btn-save">
+                    <span class="btn-icon">📝</span> 등록하기
+                </button>
+            </div>
+        </div>
+    </div>
+</main>
+
+{{>layout/footer}}
