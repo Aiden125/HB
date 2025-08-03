@@ -386,6 +386,124 @@ th {
     }
 }
 
+/* 폼 페이지 스타일 */
+.form-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.form-card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    padding: 50px 60px;
+    margin-bottom: 30px;
+}
+
+.post-form {
+    margin-bottom: 30px;
+}
+
+.form-row {
+    margin-bottom: 32px;
+}
+
+.form-row:last-child {
+    margin-bottom: 40px;
+}
+
+.form-group {
+    width: 100%;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.form-label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+}
+
+.required {
+    color: #FF6F0F;
+    font-weight: bold;
+}
+
+.form-control {
+    width: 100%;
+    max-width: none;
+    padding: 16px;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    background: #fafbfc;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border-color: #FF6F0F;
+    outline: none;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(255, 111, 15, 0.1);
+}
+
+.readonly-input {
+    background: #f8f9fa !important;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.content-textarea {
+    min-height: 300px;
+    resize: vertical;
+    line-height: 1.8;
+    padding: 20px;
+    font-size: 1.05rem;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-secondary:hover {
+    background: #545b62;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
 /* 모바일 대응 */
 @media (max-width: 700px) {
     header, .header {
@@ -420,5 +538,26 @@ th {
     }
     .main-title {
         font-size: 1.5rem;
+    }
+    
+    /* 폼 모바일 스타일 */
+    .form-container {
+        padding: 0 15px;
+    }
+    
+    .form-card {
+        padding: 24px 20px;
+        border-radius: 12px;
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .btn-secondary,
+    .btn-primary {
+        width: 100%;
+        justify-content: center;
     }
 }
